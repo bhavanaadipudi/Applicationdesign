@@ -1,0 +1,30 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName="username" />
+      <div  *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)">
+        <div  style="color :red;" *ngIf="registerForm.get('username')?.hasError('required')" >Username is required.</div>
+      </div>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" />
+      <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+        <div style="color :red;" *ngIf="registerForm.get('email')?.hasError('required')">Email is required.</div>
+        <div style="color :red;" *ngIf="registerForm.get('email')?.hasError('email')">Please enter a valid email address.</div>
+      </div>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" />
+      <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+        <div style="color :red;" *ngIf="registerForm.get('password')?.hasError('required')">Password is required.</div>
+        <div style="color :red;" *ngIf="registerForm.get('password')?.hasError('minlength')">Password should be at least 6 characters long.</div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  </form>
+  <div class="custom-alert" *ngIf="showAlertMessage">
+    {{ alertMessage }}
+  </div>
+  

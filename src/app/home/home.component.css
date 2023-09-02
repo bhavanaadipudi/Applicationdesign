@@ -1,0 +1,18 @@
+/* home.component.css */
+
+/* Set the background image and cover the entire viewport */
+.home-container {
+    background: url('C:\Users\Adipudibhavana\Desktop\Angular Upskill\Applicationdesign\src\assets\images\background- image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh; /* Ensure the background covers the entire viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+
+
+
+  
+  
